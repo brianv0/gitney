@@ -41,7 +41,6 @@ def cache_github_ids():
         # using github name
         pprint(profile)
         fields = profile["fields"]
-        maybe_github_id = name
-        if fields and github_field_id in fields:
-            maybe_github_id = fields[github_field_id].get("value", maybe_github_id)
-        github_user_map[maybe_github_id] = {"name":name, "id":id}
+        if fields and github_field_id in fields and fields[github_field_id]:
+            github_user_map[maybe_github_id] = {"name":name, "id":id}
+
